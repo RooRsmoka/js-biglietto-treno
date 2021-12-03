@@ -13,13 +13,14 @@
 const outputHtml = document.getElementById('output');
 
 // Chiedo all'utente la distanza da percorrere.
-const userDistance = parseInt(prompt('Inserisci la distanza che devi percorrere(in Km).'));
+const kmTodo = parseInt(prompt('Inserisci la distanza che devi percorrere(in Km).'));
 
 // Chiedo all'utente L'età.
 const userAge = parseInt(prompt('Inserisci la tua età.'));
 
 // Calcolo il prezzo del biglietto in base ai Km inseriti(km * 0.21 €).
-const travelPrice = userDistance * 0.21;
+let travelPrice = kmTodo * 0.21;
+travelPrice = travelPrice.toFixed(2);
 // Calcolo lo sconto per i minorenni.
 let discountTwenty = (travelPrice - (travelPrice * 20) / 100);
 discountTwenty = discountTwenty.toFixed(2);
@@ -38,5 +39,5 @@ if (userAge < 18) {
     outputHtml.innerHTML = `Il prezzo del biglietto è di ${travelPrice} €.`
 }
 
-console.log(userDistance);
-console.log(userAge);
+console.log(discountTwenty);
+console.log(discountForty)
